@@ -1,0 +1,1 @@
+vmware, esx, veeam, exchange, Microsoft SQL, citrix, linux kernel, windows server, fortinet, fortigate, fortios, cisco, nx-os

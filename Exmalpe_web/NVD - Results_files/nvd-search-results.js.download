@@ -1,0 +1,26 @@
+﻿
+$(document)
+		.ready(
+				function() {
+
+					// Intialize sortBy URL and register handler
+					var sortByUrl = $('#sortByUrl').attr('value');
+					
+					var sortChangeBtn = $('#sortChangeBtn');
+					
+					
+					
+					sortChangeBtn.on("click", function(evnt) {
+						handleSortClick(evnt);
+					});
+
+					function handleSortClick(evnt) {
+	
+						evnt.preventDefault();
+						var selectedSort = $( "#SortByDDL" ).val();
+						var selectedItems = selectedSort.split('|');
+				        location = sortByUrl + '&orderBy=' + selectedItems[0]  +'&orderDir='+ selectedItems[1] ; 
+					}
+					
+
+				});

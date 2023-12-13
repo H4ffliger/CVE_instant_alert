@@ -15,7 +15,7 @@ def sendMail(subject, text, reciver_address):
 	global s
 	message = 'Subject: {}\n\n{}'.format(subject, text)
 	s.sendmail(fromAddress, reciver_address, message)
-	s.quit()
+	#s.quit()
 	return True
 	
 	

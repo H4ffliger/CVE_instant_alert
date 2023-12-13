@@ -14,7 +14,7 @@ def getCVEContext(cveNumber):
 
 
 def crawlLoop():
-	global lastCVEs
+	global lastCVEs, searchCriteria
 	if(crawl.newCVEsFound(lastCVEs)):
 		print("Found new CVEs")
 		newCVEs = crawl.crawlCurrentCVEs()
@@ -23,14 +23,14 @@ def crawlLoop():
 				print("Found new CVE: " + cve)
 				print("Description: " + crawl.crawlCVE(cve))
 				for s in searchCriteria:
-					if(s in searchCriteria.lower):
+					if(s in crawl.crawlCVE(cve).lower()):
 						sendMail("CVE Alert " + cve + s, crawl.crawlCVE(cve), "haefligerjoshua@gmail.com")
 						print("Mail alert sent")
 
 		lastCVEs = newCVEs
 	else:
 		print("No new CVEs found")
-	sleep(10)
+	sleep(60)
 	crawlLoop()
 
 
